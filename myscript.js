@@ -22,3 +22,8 @@ replayOnceBtn.onclick = function(){
 	}
 }
 document.getElementsByClassName("ytp-chrome-controls")[0].appendChild(replayOnceBtn);
+
+document.getElementById("movie_player").onkeydown = function(e){
+	if(e.keyCode == 82)
+		replayOnceBtn.click();
+}
