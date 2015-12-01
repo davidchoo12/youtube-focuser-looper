@@ -12,7 +12,7 @@ replayOnceBtn.innerHTML = "<svg fill=\"white\" width=\"90%\" height=\"100%\" vie
 replayOnceBtn.onclick = function(){
 	//if not replaying once
 	if(document.getElementsByTagName("video")[0].onended == null) {
-		document.getElementsByTagName("video")[0].onended = function(){document.getElementsByClassName("ytp-play-button")[0].click();}
+		document.getElementsByTagName("video")[0].onended = function(){document.getElementsByClassName("ytp-play-button")[0].click();counter.innerHTML = parseInt(counter.innerHTML)+1;}
 		replayOnceBtn.setAttribute("style", "float:right; text-align:center; -webkit-filter:drop-shadow( 0px 0px 2px #0ff );");
 	}
 	//if replaying once
@@ -22,6 +22,11 @@ replayOnceBtn.onclick = function(){
 	}
 }
 document.getElementsByClassName("ytp-chrome-controls")[0].appendChild(replayOnceBtn);
+
+var counter = document.createElement("span");
+counter.setAttribute("style", "float: right;");
+counter.innerHTML = 1;
+document.getElementsByClassName("ytp-chrome-controls")[0].appendChild(counter);
 
 document.getElementById("movie_player").onkeydown = function(e){
 	if(e.keyCode == 82)
